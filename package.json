@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "browserify ./public/app.js -o ./public/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,12 @@
   },
   "homepage": "https://github.com/rjoe19/gymfinder#readme",
   "dependencies": {
+    "browserify": "^13.0.0",
     "express": "^4.13.4",
+    "jquery": "^2.2.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0"
   }
 }
