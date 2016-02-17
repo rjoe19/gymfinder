@@ -2,7 +2,7 @@
 $( document ).ready(function() {
 //wellington
   $("#button-wgtn").click(function(){
-      $.get("demo_test.asp", function(data, status){
+      $.get("/gym-wgtn", function(data, status){
           alert("Data: " + data + "\nStatus: " + status);
       });
   });
@@ -10,7 +10,7 @@ $( document ).ready(function() {
   //auckland
 
   $("#button-akl").click(function(){
-      $.get("demo_test.asp", function(data, status){
+      $.get("/gym-akl", function(data, status){
           alert("Data: " + data + "\nStatus: " + status);
       });
   });

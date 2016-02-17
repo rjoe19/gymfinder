@@ -15,5 +15,13 @@ var server = app.listen(app.get('port'), function() {
 });
 
 app.get('/gym-chch', function (req, res) {
-  console.log('hit gym chch')
+  app.json(['les mills', 'city fitness', 'jetts'])
+})
+
+app.get('/gym-wgtn', function (req, res) {
+  console.log('hit gym wgtn')
+})
+
+app.get('/gym-akl', function (req, res) {
+  console.log('hit gym akl')
 })
