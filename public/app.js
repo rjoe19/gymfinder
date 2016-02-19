@@ -86,10 +86,11 @@ $( document ).ready(function() {
 
   $("#randomButton").click(function() {
       $.get("randomQuote", function(data, status) {
+          $("#quoteOutput").append("<p>fake data</p>")
         console.log("button hit", data)
 
   })
 
-  
+
 
 });

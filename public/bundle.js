@@ -1,1 +1,1 @@
-console.error("SyntaxError: Unexpected token (98:4) while parsing /Users/richardjoe/eda/gymfinder/public/app.js while parsing file: /Users/richardjoe/eda/gymfinder/public/app.js");
+console.error("SyntaxError: Unexpected token (99:4) while parsing /Users/richardjoe/eda/gymfinder/public/app.js while parsing file: /Users/richardjoe/eda/gymfinder/public/app.js");
