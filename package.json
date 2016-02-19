@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "browserify ./public/app.js -o ./public/bundle.js"
+    "build": "browserify ./public/app.js -o ./public/bundle.js",
+    "watch": "watchify ./public/app.js -o ./public/bundle.js"
   },
   "repository": {
     "type": "git",

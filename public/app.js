@@ -13,10 +13,36 @@
 // })
 //
 // console.log(names)
+alert('watchify working')
+var $ = require('jquery')
 var fs = require('fs')
 
-var extractJson = fs.readFileSync(__dirname + './data/db.json', 'utf-8')
-console.log(extractJson)
+
+// var extractJson = fs.readFile(__dirname + './data/db.json', 'utf-8')
+// console.log(extractJson)
+
+
+//browerify youtube tutorial
+// var button = $('<button/>').html('click me').on('click', function () {
+//   alert('hi')
+// })
+// $('body').append(button)
+
+
+
+
+  // $("#info-wgtn").html(JSON.stringify(data.Gyms.Wellington))
+
+//pseudocode....
+// 1) pull in db.json ---->fs.readFile done. see server.js fs.readfile
+//2) extract info from db.json out of the object.....then finally out of array
+
+// 3) display result of that inside a pretty div --->append
+
+
+
+
+
 
 
 
@@ -24,31 +50,24 @@ console.log(extractJson)
 
 $( document ).ready(function() {
 //wellington
+
+
+
+
+
   $("#button-wgtn").click(function(){
       $.get("/gym-wgtn", function(data, status){
-
-
-        //  $("#info-wgtn").html(JSON.stringify(data.Gyms.Wellington))
-
-        //pseudocode....
-        // 1) pull in db.json ---->fs.readFile
-        //2) extract info from db.json out of the object.....then finally out of array
-
-        // 3) display result of that inside a pretty div
-
-
-
-
+      $("#info-wgtn").append("<p>fake data</p>")
         console.log("wellington working", data)
-
       });
   });
 
-  //auckland
+  auckland
 
   $("#button-akl").click(function(){
       $.get("/gym-akl", function(data, status){
-          console.log("auckland working")
+        $("#info-akl").append("<p>fake data</p>")
+      console.log("auckland working", data)
       });
   });
 
@@ -58,8 +77,19 @@ $( document ).ready(function() {
   //christchurch
   $("#button-chch").click(function(){
       $.get("/gym-chch", function(data, status){
-          console.log("christchurch working")
+          console.log("christchurch working",data)
       });
   });
+
+
+//random motivational button
+
+  $("#randomButton").click(function() {
+      $.get("randomQuote", function(data, status) {
+        console.log("button hit", data)
+
+  })
+
+  
 
 });

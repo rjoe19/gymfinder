@@ -1,42 +1,146 @@
 <!DOCTYPE html>
-<!-- Template by quackit.com -->
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Gym Finder - local gyms in your neighbourhood</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
-		<script src="bundle.js"></script>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Gym Finder App</title>
+  <meta name="description" content="A Gym Finding App">
+  <meta name="author" content="Gym Finder">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+
+  <!-- jQuery -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script> -->
+
+  <!-- browserify bundle -->
+  <script src="bundle.js"></script>
+
+</head>
+
+<body>
+<!-- <h1> What's in the fridge?</h1>
+<div class ="foodItems">
+<label>ITEM LIST</label>
+<button>ADD</button>
+<input type="text" name="content" id="inputitem">
+</div> -->
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+    <!-- <header class="row textpanel">
+      <div class="nav-row">
+
+        <div class="three columns nav-col">
+        </div>
+        <div class="three columns nav-col">
+          <a href="index.html">Shopping List</a>
+        </div>
+        <div class="three columns nav-col">
+          <a href="pantry.html">Pantry</a>
+        </div>
+        <div class="three columns nav-col">
+        </div>
+
+      </div>
+    </header> -->
+
+    <main class="row textpanel">
+
+      <div class="row">
+        <div class="twelve columns">
+         <!-- <h1>Hi!</h1> -->
+          <h1>Gym Finder</h1>
+          <h3>There's no excuse not to train now</h3>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+            <img class="gorillaMain" src="images/image1.jpg" alt="gym gorilla" style="text-align: left;">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="six columns" id="food_list_container">
+          <section>
+            <h5>Where do you wanna train today?</h5>
+            <div>
+    					<button id = "button-wgtn">Wellington</button>
+    					<div id = "info-wgtn">dummy output</div>
+
+    					<button id = "button-akl">Auckland</button>
+    					<div id = "info-akl">dummy output</div>
+
+    					<button id = "button-chch">Christchurch</button>
+    					<div id = "info-chch">dummy output</div>
+
+    				</div>
+            <!-- <ul id="food_list">
+            </ul> -->
+          </section>
+        </div>
 
 
-	</head>
+        <div class="six columns" id="form_container">
+          <!--<p>Input form goes here</p> -->
 
-	<body>
-		<div id="wrapper">
+          <h5>Suggest a Gym!</h5>
 
-			<main>
-				<div id="content">
-					<div class="innertube">
-						<h1>Gym Finder - local gyms in your neighbourhood</h1>
-					</div>
-				</div>
-			</main>
+          <button type="submit" id="gymButton">Update Gym list</button>
+          <!-- <form action="/inputgymItem" method="post">
+              <div>
+                  <label for="foodItem">Gym</label>
+                  <input type="text" id="gymItem" />
+              </div> -->
+              <!-- <div>
+                  <label for="mail">E-mail:</label>
+                  <input type="email" id="mail" />
+              </div>
+              <div>
+                  <label for="food">Message:</label>
+                  <textarea id="msg"></textarea>
+              </div> -->
+          <!-- </form> -->
+          <h5>Motivation Generator</h5>
+          <button id = "randomButton">Inspire me</button>
+          <div id = "quoteOutput">dummy output</div>
 
-			<nav id="nav">
-				<div class="innertube">
-					<h3 id = "button-wgtn">Wellington</h3>
-					<div id = "info-wgtn"></div>
+          </div>
+        </div>
+    </main>
 
-					<h3 id = "button-akl">Auckland</h3>
-					<div id = "info-akl"></div>
+    <footer class="row textpanel">
+      <p>
+      Copyright 2016
+      </p>
+    </footer>
 
-					<h3 id = "button-chch">Christchurch</h3>
-					<div id = "info-chch"></div>
-
-				</div>
-			</nav>
-
-		</div>
-	</body>
+  </div>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
 </html>
