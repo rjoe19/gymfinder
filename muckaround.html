@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Write a title here</title>
+    <!-- Add any other metadata here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./quote-generator/main.js"></script>
+    <script>
+    // $(document).ready(function() {
+    //     $("#randomButton").on("click", function() {
+    //       $("#quoteOutput").append("<p>randomQuote</p>")
+    //     })
+    // })
+
+
+
+
+    $(document).ready(function(){
+      $("#randomButton").on("click", function() {
+        $("#quoteOutput").append("<p>randomQuote</p>")
+      })
+});
+
+    </script>
+  </head>
+
+
+  <body>
+
+    <h5>Motivation Generator</h5>
+    <button id = "randomButton">Inspire me</button>
+    <div id = "quoteOutput"></div>
+    <!-- Add here all content exposed to the user -->
+  </body>
+</html>

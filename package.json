@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "browserify ./public/app.js -o ./public/bundle.js",
-    "watch": "watchify ./public/app.js -o ./public/bundle.js"
+    "build": "browserify ./src/app.js -o ./public/bundle.js",
+    "watch": "watchify ./src/app.js -o ./public/bundle.js -dv"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,8 @@
   "dependencies": {
     "browserify": "^13.0.0",
     "express": "^4.13.4",
+    "express3-handlebars": "^0.5.2",
+    "handlebars": "^4.0.5",
     "jquery": "^2.2.0",
     "path": "^0.12.7",
     "watchify": "^3.7.0"
