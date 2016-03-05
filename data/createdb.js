@@ -1,7 +1,7 @@
 var knex = require('knex') ({
   client: 'sqlite3',
   connection: {
-    filename: './data/auth.sqlite'
+    filename: './data/gym.sqlite'
   },
   useNullAsDefault: true
 })
@@ -13,9 +13,13 @@ var createSql = [
     'CREATE TABLE users (',
     '  id VARCHAR(255) NOT NULL,',
     '  name VARCHAR(255) NOT NULL,',
+    '  my_gym VARCHAR(255) NOT NULL,',
+    '  my_city VARCHAR(255) NOT NULL,',
+    '  mobile_number VARCHAR(255) NOT NULL UNIQUE,',
     '  email VARCHAR(255) NOT NULL UNIQUE,',
     '  password_hash VARCHAR(255) NOT NULL',
-    ');'
+
+');'
   ].join(' ')
 
   knex.raw(dropSql).then(function (resp) {

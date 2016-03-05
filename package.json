@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "build": "browserify ./src/app.js -o ./public/bundle.js",
-    "watch": "watchify ./src/app.js -o ./public/bundle.js -dv"
+    "nodemon": "nodemon server.js",
+    "table": "node ./data/createdb.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "express-partial": "^0.1.0",
+    "express-session": "^1.13.0",
     "express3-handlebars": "^0.5.2",
     "handlebars": "^4.0.5",
     "jquery": "^2.2.0",

@@ -9,6 +9,7 @@ var Twitter = require('twitter');
 var bodyParser = require('body-parser'); //parses the body of the response
 var bcrypt = require('bcrypt');
 var uuid = require('node-uuid'); //creates unique id for user
+var session = require('express-session')
 
 // create application/json parser
 var jsonParser = bodyParser.json()
@@ -32,10 +33,15 @@ app.set('port', 3000);
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+app.use(session({
+  secret: 'ssshhhhhh! Top secret!',
+  saveUninitialized: true,
+  resave: true,
+  db: knex
+}))
 
 
-
-//deliver files directly to the browser
+//deliver files directly to the browser/serve public
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Listen for requests
@@ -47,50 +53,39 @@ var server = app.listen(app.get('port'), function() {
 var knex = require('knex')({
   client: 'sqlite3',
   connection: {
-    filename: './data/auth.sqlite'
+    filename: './data/gym.sqlite'
   },
   useNullAsDefault: true
 })
 
-//serve get requests for gyms --->route
-// app.get('/gym-wgtn', function (req, res) {
-//     fs.readFile('./data/db.json', 'utf8', function (err, data) {
-//       console.log("got gym wgtn")
-//     if (err) throw err;
-//     res.json(JSON.stringify(data))
-//   })
-// })
-
-// app.get('/', function (req, res) {
-//   res.render('index');
-// })
-
-// app.get('/about', function (req, res) {
-//   res.render('about');
-// })
-//
-// app.get('/contact', function (req, res) {
-//   res.render('contact');
-// })
+// routes for gyms in each city
 
 
-app.get(__dirname + '/gym-akl', function (req, res) {
-    fs.readFile('./data/db.json', 'utf8', function (err, data) {
-      console.log("got gym akl")
-    if (err) throw err;
-    var info = JSON.parse(data)
-    console.log(res.json(info.Auckland[1]))
+app.get('/gym-akl', urlencodedParser, function (req, res) {
 
-  })
-})
+  // select all columns from users table, where city = auckland
+  // SELECT * FROM users
+// WHERE My City='Auckland';
+console.log("THIS IS THE REQUEST",res)
 
-app.get('/gym-chch', function (req, res) {
-    fs.readFile(__dirname + './data/db.json', 'utf8', function (err, data) {
-      console.log("got gym chch")
-    if (err) throw err;
-    res.json(JSON.stringify(data))
-  })
-})
+var userAkl = req.body.my_city
+  knex('users').where('my_city', userAkl).then(function(resp){
+      console.log("THIS IS THE RESPONSE", resp)
+          res.render('gym-akl');
+        })
+    })
+
+    app.get('/gym-chch', function (req, res) {
+      knex('users').select('*').then(function(resp){
+              res.render('gym-chch', {user: resp});
+            })
+        })
+
+      app.get('/gym-wgtn', function (req, res) {
+        knex('users').select('*').then(function(resp){
+                res.render('gym-wgtn', {user: resp});
+              })
+          })
 
 
 app.get('/randomQuote', function (req, res) {
@@ -104,11 +99,11 @@ app.get('/randomQuote', function (req, res) {
 // authorisation and handlebars stuff below, see repo authorisation
 
 app.get('/', function (req, res) {
-  res.render('index', {id: req.session.userId})
+  res.render('main', {id: req.session.userId})
 })
 
 app.get('/sign-up', function (req, res) {
-  res.render('sign-up.handlebars')
+  res.render('sign-up')
 })
 
 app.post('/sign-up', urlencodedParser, function (req, res) {
@@ -122,6 +117,7 @@ app.post('/sign-up', urlencodedParser, function (req, res) {
       toDb.id = uuid.v1()
       delete toDb.password
       knex('users').insert(toDb).then( function (resp) {
+        console.log("THIS IS A RESPONSE FROM KNEX", resp)
       })
     })
   });
@@ -141,7 +137,7 @@ knex('users').where('email', email).then( function (resp) {
   console.log("response from sql lite", resp)
      bcrypt.compare(password, resp[0].password_hash, function(err, resp) {
         if (resp === true) {
-           res.redirect('/success')
+           res.redirect('/')
         }
         else {
     // res == false
@@ -150,10 +146,10 @@ knex('users').where('email', email).then( function (resp) {
         });
       })
  })
-
- app.get('/success', function (req, res) {
-   res.render('success')
- })
+ //
+ // app.get('/success', function (req, res) {
+ //   res.render('success')
+ // })
 
 
 
