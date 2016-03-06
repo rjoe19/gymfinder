@@ -61,31 +61,48 @@ var knex = require('knex')({
 // routes for gyms in each city
 
 
-app.get('/gym-akl', urlencodedParser, function (req, res) {
-
+app.get('/gym-akl', function (req, res) {
   // select all columns from users table, where city = auckland
   // SELECT * FROM users
 // WHERE My City='Auckland';
-console.log("THIS IS THE REQUEST",res)
+console.log("THIS IS THE REQUEST", req.body)
 
 var userAkl = req.body.my_city
-  knex('users').where('my_city', userAkl).then(function(resp){
+  knex('users').where({ my_city: 'auckland'}).select('*').then(function(resp){
       console.log("THIS IS THE RESPONSE", resp)
-          res.render('gym-akl');
+          res.render('gym-akl', {user: resp});
         })
     })
 
+
+
     app.get('/gym-chch', function (req, res) {
-      knex('users').select('*').then(function(resp){
+      // select all columns from users table, where city = auckland
+      // SELECT * FROM users
+    // WHERE My City='Auckland';
+    console.log("THIS IS THE REQUEST", req.body)
+
+    var userAkl = req.body.my_city
+      knex('users').where({ my_city: 'christchurch'}).select('*').then(function(resp){
+          console.log("THIS IS THE RESPONSE", resp)
               res.render('gym-chch', {user: resp});
             })
         })
 
-      app.get('/gym-wgtn', function (req, res) {
-        knex('users').select('*').then(function(resp){
-                res.render('gym-wgtn', {user: resp});
-              })
-          })
+
+        app.get('/gym-wgtn', function (req, res) {
+          // select all columns from users table, where city = auckland
+          // SELECT * FROM users
+        // WHERE My City='Auckland';
+        console.log("THIS IS THE REQUEST", req.body)
+
+        var userAkl = req.body.my_city
+          knex('users').where({ my_city: 'wellington'}).select('*').then(function(resp){
+              console.log("THIS IS THE RESPONSE", resp)
+                  res.render('gym-wgtn', {user: resp});
+                })
+            })
+
 
 
 app.get('/randomQuote', function (req, res) {
