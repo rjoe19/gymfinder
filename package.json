@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "browserify ./src/app.js -o ./public/bundle.js",
+    "watch": "watchify ./src/app.js -o ./public/bundle.js",
     "nodemon": "nodemon server.js",
     "table": "node ./data/createdb.js"
   },
@@ -32,7 +32,7 @@
     "express-session": "^1.13.0",
     "express3-handlebars": "^0.5.2",
     "handlebars": "^4.0.5",
-    "jquery": "^2.2.0",
+    "jquery": "^2.2.1",
     "knex": "^0.10.0",
     "node-uuid": "^1.4.7",
     "path": "^0.12.7",

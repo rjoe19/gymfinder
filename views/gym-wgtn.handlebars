@@ -1,5 +1,6 @@
 <div id = "gym-wellington">
   <h1>Gym Finder</h1>
+  <a href="/" class="btn btn-primary btn-lg active" role="button">Home</a>
   <h2>List of Gym Buddies in Wellington below</h2>
   {{#each user}}
         <div class="item" id="{{this.id}}">
@@ -13,3 +14,24 @@
         </div>
       {{/each}}
 </div>
+<!-- Google API below -->
+<style>
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+          center: {lat: -41.2889, lng: 174.7772},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>

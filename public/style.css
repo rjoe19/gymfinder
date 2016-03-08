@@ -10,28 +10,17 @@ body {
 background-color:
 }
 
-#food_list input {
-margin-right: 5px;
-}
 
 h3 {
 text-align: center;
 }
 
-/*.scale-with-grid  {
-max-width: 100%;
-text-align: center;
-margin-right: 30%;
-margin-left: 30%;
-}*/
 
 .nav-row {
 text-align: center;
 }
 
 .gorillaMain {
-
       width: 300px;
       padding-left: 500px;
-
 }

@@ -1,1 +1,1 @@
-console.error("Error: Cannot find module 'jquery' from '/Users/richardjoe/eda/gymfinder/src'");
+console.error("Error: Parsing file /Users/richardjoe/eda/gymfinder/src/app.js: Unexpected token (35:26)");

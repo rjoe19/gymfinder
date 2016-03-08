@@ -1,3 +1,6 @@
+// Set default node environment to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -41,7 +44,7 @@ app.use(session({
 }))
 
 
-//deliver files directly to the browser/serve public
+// deliver files directly to the browser/serve public
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Listen for requests
@@ -67,7 +70,7 @@ app.get('/gym-akl', function (req, res) {
 // WHERE My City='Auckland';
 console.log("THIS IS THE REQUEST", req.body)
 
-var userAkl = req.body.my_city
+
   knex('users').where({ my_city: 'auckland'}).select('*').then(function(resp){
       console.log("THIS IS THE RESPONSE", resp)
           res.render('gym-akl', {user: resp});
@@ -82,7 +85,7 @@ var userAkl = req.body.my_city
     // WHERE My City='Auckland';
     console.log("THIS IS THE REQUEST", req.body)
 
-    var userAkl = req.body.my_city
+
       knex('users').where({ my_city: 'christchurch'}).select('*').then(function(resp){
           console.log("THIS IS THE RESPONSE", resp)
               res.render('gym-chch', {user: resp});
@@ -96,7 +99,7 @@ var userAkl = req.body.my_city
         // WHERE My City='Auckland';
         console.log("THIS IS THE REQUEST", req.body)
 
-        var userAkl = req.body.my_city
+
           knex('users').where({ my_city: 'wellington'}).select('*').then(function(resp){
               console.log("THIS IS THE RESPONSE", resp)
                   res.render('gym-wgtn', {user: resp});
@@ -115,9 +118,13 @@ app.get('/randomQuote', function (req, res) {
 
 // authorisation and handlebars stuff below, see repo authorisation
 
-app.get('/', function (req, res) {
-  res.render('main', {id: req.session.userId})
-})
+// app.get('/', function (req, res) {
+//   res.render('main')
+// })
+
+app.get('/', function (req, res, next) {
+    res.render('home', {layout: false});
+});
 
 app.get('/sign-up', function (req, res) {
   res.render('sign-up')
@@ -163,10 +170,14 @@ knex('users').where('email', email).then( function (resp) {
         });
       })
  })
- //
- // app.get('/success', function (req, res) {
- //   res.render('success')
- // })
+
+ // Logout endpoint
+app.get('/sign-out', function (req, res) {
+    res.render('sign-out')
+  // Add logout code here
+  req.session.destroy()
+
+})
 
 
 

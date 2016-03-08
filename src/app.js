@@ -19,15 +19,21 @@ $( document ).ready(function() {
             // });
 
             //auckland
-            $("#button-akl").click(function(){
-              console.log("auckland button working")
-                $.get("/gym-akl", function(data, status){
-                  console.log("hit gym auckland")
-                
-                  $("#info-akl").append(JSON.parse(data))
-                // console.log("auckland working", data.Gyms.Auckland)
-                });
-            });
+            // $("#button-akl").click(function(){
+            //   console.log("auckland button working")
+            //     $.get("/gym-akl", function(data, status){
+            //       knex('users').where({ my_city: 'auckland'}).select('*').then(function(resp){
+            //           console.log("THIS IS THE RESPONSE", resp)
+            //               res.render('gym-akl', {user: resp});
+            //             })
+            //         })
+
+//onclick of auckland button, redirect to akl.handlebars page
+                    // <!-- html button designing and calling the event in javascript -->
+                    $("#button-akl").click(function(){
+                      console.log("auckland button working yeah")
+                       <a href="http://learn.jquery.com">Learn jQuery</a>
+                    })
             //christchurch
           //   $("#button-chch").click(function(){
           //     console.log("christchurch button working")
