@@ -140,13 +140,15 @@ app.post('/sign-up', urlencodedParser, function (req, res) {
       toDb.password_hash = hash //creating new key password_has in todb object
       toDb.id = uuid.v1()
       delete toDb.password
-      knex('users').insert(toDb).then( function (resp) {
-        console.log("THIS IS A RESPONSE FROM KNEX", resp)
+      console.log("HERE IS THE ID",toDb.id )
+      knex('users').insert(toDb).then(function (resp) {
+        console.log("THIS IS A RESPONSE FROM KNEX")
+        req.session.userId = toDb.id      //auth session id equates to db
+        res.redirect('/')
       })
     })
   });
-  req.session.userId = 8
-  res.redirect('/')
+
 })
 
 app.get('/sign-in', function (req, res) {
@@ -161,10 +163,10 @@ knex('users').where('email', email).then( function (resp) {
   console.log("response from sql lite", resp)
      bcrypt.compare(password, resp[0].password_hash, function(err, resp) {
         if (resp === true) {
+          req.session.userId == resp[0].id   //auth session id equates to db
            res.redirect('/')
         }
         else {
-    // res == false
          res.render('sign-in', {message: "Login failed, please try again"})
          }
         });
@@ -176,7 +178,6 @@ app.get('/sign-out', function (req, res) {
     res.render('sign-out')
   // Add logout code here
   req.session.destroy()
-
 })
 
 
