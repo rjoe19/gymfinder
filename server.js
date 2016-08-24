@@ -164,6 +164,7 @@ knex('users').where('email', email).then( function (resp) {
      bcrypt.compare(password, resp[0].password_hash, function(err, resp) {
         if (resp === true) {
           req.session.userId == resp[0].id   //auth session id equates to db
+          console.log(resp[0].id)
            res.redirect('/')
         }
         else {
