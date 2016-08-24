@@ -26,9 +26,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-
-
-
 // Define the port to run on
 app.set('port', 3000);
 
@@ -42,7 +39,6 @@ app.use(session({
   resave: true,
   db: knex
 }))
-
 
 // deliver files directly to the browser/serve public
 app.use(express.static(path.join(__dirname, 'public')));
@@ -62,7 +58,7 @@ var knex = require('knex')({
 })
 
 // routes for gyms in each city
-
+//---- SET VIEWS FOR GYMS IN EACH CITY, RENDERED IN {{{BODY}}}
 
 app.get('/gym-akl', function (req, res) {
   // select all columns from users table, where city = auckland
