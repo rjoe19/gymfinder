@@ -65,44 +65,33 @@ app.get('/gym-akl', function (req, res) {
   // SELECT * FROM users
 // WHERE My City='Auckland';
 console.log("THIS IS THE REQUEST", req.body)
-
-
   knex('users').where({ my_city: 'auckland'}).select('*').then(function(resp){
       console.log("THIS IS THE RESPONSE", resp)
           res.render('gym-akl', {user: resp});
         })
     })
 
-
-
     app.get('/gym-chch', function (req, res) {
       // select all columns from users table, where city = auckland
       // SELECT * FROM users
     // WHERE My City='Auckland';
     console.log("THIS IS THE REQUEST", req.body)
-
-
       knex('users').where({ my_city: 'christchurch'}).select('*').then(function(resp){
           console.log("THIS IS THE RESPONSE", resp)
               res.render('gym-chch', {user: resp});
             })
         })
 
-
-        app.get('/gym-wgtn', function (req, res) {
+    app.get('/gym-wgtn', function (req, res) {
           // select all columns from users table, where city = auckland
           // SELECT * FROM users
         // WHERE My City='Auckland';
         console.log("THIS IS THE REQUEST", req.body)
-
-
           knex('users').where({ my_city: 'wellington'}).select('*').then(function(resp){
               console.log("THIS IS THE RESPONSE", resp)
                   res.render('gym-wgtn', {user: resp});
                 })
             })
-
-
 
 app.get('/randomQuote', function (req, res) {
     fs.readFile(__dirname + '.public/quote-generator/main.js', 'utf8', function (err, data) {
