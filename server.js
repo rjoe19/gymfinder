@@ -147,11 +147,13 @@ app.post('/sign-in', urlencodedParser, function (req, res) {
 knex('users').where('email', email).then( function (resp) {
   console.log("response from sql lite", resp)
      bcrypt.compare(password, resp[0].password_hash, function(err, resp) {
+       console.log(resp[0]);
         if (resp === true) {
           req.session.userId == resp[0].id   //auth session id equates to db
           console.log(resp[0].id)
            res.redirect('/')
         }
+
         else {
          res.render('sign-in', {message: "Login failed, please try again"})
          }
