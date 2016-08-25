@@ -20,8 +20,18 @@ text-align: center;
 text-align: center;
 }
 
-.gorillaMain {
+.crossfitClass {
  width: 100%;
- display: block; 
+ display: block;
 
+}
+
+body {
+    background-color:lightgreen;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color:lightblue;
+    }
 }
