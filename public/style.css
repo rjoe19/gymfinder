@@ -41,3 +41,20 @@ body {
         background-color:lightblue;
     }
 }
+
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 767px) {
+  h1 { font-size: 12vw; }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  h1 { font-size: 16vw; }
+}
+/* tablets/desktops and up ----------- */
+@media (min-width: 992px) and (max-width: 1199px) {
+  h1 { font-size: 16vw; }
+}
+/* large desktops and up ----------- */
+@media screen and (min-width: 1200px) {
+  h1 { font-size: 16vw; }
+}
