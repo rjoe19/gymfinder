@@ -14,6 +14,8 @@ var bcrypt = require('bcrypt');
 var uuid = require('node-uuid'); //creates unique id for user
 var session = require('express-session')
 
+live-reload './views/layouts/main.handlebars' --port=3000 --delay=someDelay
+
 // create application/json parser
 var jsonParser = bodyParser.json()
 
