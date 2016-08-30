@@ -7,27 +7,27 @@ font-size: 150px;
 }
 
 body {
-background-color:
+  background-color:
 }
 
 
 h3 {
-text-align: center;
+  text-align: center;
 }
 
 
 .nav-row {
-text-align: center;
+  text-align: center;
 }
 
 .crossfitClass {
- width: 100%;
- display: block;
+  width: 100%;
+  display: block;
 
 }
 
 body {
-    background-color:lightgreen;
+  background-color:lightgreen;
 }
 
 /* Extra small devices (phones, up to 480px) */
@@ -41,4 +41,8 @@ body {
 /* tablets/desktops and up ----------- */
 @media (min-width: 992px) and (max-width: 1199px) {
   h1 { font-size: 14vw; }
+}
+
+intro {
+  text-align: center;
 }
