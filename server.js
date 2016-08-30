@@ -168,8 +168,13 @@ app.get('/sign-out', function (req, res) {
   req.session.destroy()
 })
 
+// about and contact pages
 app.get('/about', function (req, res) {
   res.render('about')
+})
+
+app.get('/contact', function (req, res) {
+  res.render('contact')
 })
 
 
