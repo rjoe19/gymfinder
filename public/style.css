@@ -1,7 +1,7 @@
 h1 {
-text-align: center;
-font-family: 'Passion One', cursive;
-font-size: 150px;
+  text-align: center;
+  font-family: 'Passion One', cursive;
+  font-size: 150px;
 }
 
 body {
@@ -19,6 +19,10 @@ h3 {
 .crossfitClass {
   width: 100%;
   display: block;
+}
+
+.form-all {
+  border: medium solid red;
 }
 
 body {
