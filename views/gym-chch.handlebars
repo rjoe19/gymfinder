@@ -6,9 +6,9 @@
   <div>
     <a href="/" class="btn btn-primary btn-lg active" role="button">Home</a>
 </div>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
   <h3>List of Gym Buddies in Christchurch below</h3>
   {{#each user}}
         <div class="item" id="{{this.id}}">
@@ -16,8 +16,8 @@
             <h2>{{this.name}}</h2>
             <p><b>Mobile Number</b> <br> <a href="{{this.mobile_number}}">{{this.mobile_number}}</a></p>
             <p><b>Email</b> <br> <a href="mailto:{{this.email}}">{{this.email}}</a></p>
-            <p><b>My Gym</b> <br> <a href="{{this.my_gym}}">{{this.my_gym}}</a> </p>
-            <p><b>My City</b> <br> <a href="{{this.my_city}}">{{this.my_city}}</a> </p>
+            <p><b>My Gym</b> <br> <a href="{{this.my_gym}}">{{this.my_gym}}</a></p>
+            <p><b>My City</b> <br> <a href="{{this.my_city}}">{{this.my_city}}</a></p>
           </div>
         </div>
       {{/each}}
