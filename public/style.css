@@ -30,6 +30,10 @@ body {
   background-color:lightgreen;
 }
 
+.intro {
+ text-align: center;
+}
+
 /* Extra small devices (phones, up to 480px) */
 @media screen and (max-width: 767px) {
   h1 { font-size: 12vw; }
